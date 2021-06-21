@@ -22,12 +22,22 @@ document.querySelector(".check").addEventListener("click", function () {
   } else if (guess === secretNumber) {
     document.querySelector(".message").textContent = "You guessed it!";
   } else if (guess > secretNumber) {
-    document.querySelector(".message").textContent = "too high..";
-    score--;
-    document.querySelector(".score").textContent = score;
+    if (score > 1) {
+      document.querySelector(".message").textContent = "too high..";
+      score--;
+      document.querySelector(".score").textContent = score;
+    } else {
+      document.querySelector(".message").textContent = "You lost the game!";
+      document.querySelector(".score").textContent = score = 0;
+    }
   } else if (guess < secretNumber) {
-    document.querySelector(".message").textContent = "too low..";
-    score--;
-    document.querySelector(".score").textContent = score;
+    if (score > 1) {
+      document.querySelector(".message").textContent = "too low..";
+      score--;
+      document.querySelector(".score").textContent = score;
+    } else {
+      document.querySelector(".message").textContent = "You lost the game!";
+      document.querySelector(".score").textContent = score = 0;
+    }
   }
 });
